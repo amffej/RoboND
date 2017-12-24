@@ -59,6 +59,7 @@ process_image() This is the place where all of the previously discussed steps ha
 - Color Thresholding
 - Robot Coordinates
 - Navigation angle
+
 *OUTPUT VIDEO USING MOVIEPI*
 
 ## Autonomous Navigation and Mapping
@@ -74,7 +75,7 @@ We perform a few steps in order to make sense of the environment.
 
 decision.py is used as the guiding principle for the robot’s decision matrix.  This is a tree based approach that uses information previously obtain from the perception step. An example decision tree is below:
 
-![alt text][image_6]
+![alt text][image_5]
 
 **2. Launching in autonomous mode your rover can navigate and map autonomously. Explain your results and how you might improve them in your writeup.**
 

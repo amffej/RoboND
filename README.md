@@ -6,7 +6,9 @@
 [image_4]: ./misc/writeup_4.png
 [image_5]: ./misc/writeup_5.png
 [image_6]: ./misc/writeup_6.png
+[image_7]: ./misc/writeup_7.png
 
+[![asciicast](https://asciinema.org/a/42383.png)](https://asciinema.org/a/42383)
 # Search and Sample Return Project
 
 
@@ -96,4 +98,6 @@ decision.py is used as the guiding principle for the robot’s decision matrix. 
 2) Robot not exploring sufficient part of the map: This issue was a little bit harder, the robot would randomly stick around the same area. The approach taken was to follow one wall closer to the other vs just driving in the center. By following closer towards one side (Left) the rover has a higher chance to navigate the map to a bigger extent. 
 3) Fidelity: Initially the fidelity of the pixels being mapped in comparison to the truth map was much lower (<60%). The approach taken was to skip map data when the rovers pitch and roll angle exceeded specific thresholds. 
 
+A video of one of the attemps can found below:
 
+[image_7](https://youtu.be/lbWwO0qvyw4)

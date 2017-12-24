@@ -32,7 +32,7 @@ Autonomous navigation and object detection is achieved by using thresholding tec
 ## Notebook Analysis
 **1. Run the functions provided in the notebook on test images (first with the test data provided, next on data you have recorded). Add/modify functions to allow for color selection of obstacles and rock samples.**
 
-The simulated robot has a camera feed. All our navigation and detection is based on the feed from this camera. We first must establish an understanding of what is the robot’s perspective from that camera’s point of view. On the below images we can first see a 1m x 1m temporary grid.
+The simulated robot has a camera feed. All our navigation and detection is based on the feed from this camera. We must first establish an understanding of what is the robot’s perspective from that camera’s point of view. On the below images we can first see a 1m x 1m temporary grid.
 
 ![alt text][image_1] 
 
@@ -40,7 +40,7 @@ Using the OpenCV library we can then perform a perspective transform by taking a
 
 ![alt text][image_2] 
 
-From the virtual environment we can easily distinguish between navigable terrain and obstacles due to the color of each. Navigable terrain is much lighter than obstacles such was rocks and mountains. We can use color threshold techniques to extract the navigable regions. `color_threshold` is used to set threshold intensity limit on a Red, Green and Blue. This then outputs the result of the threshing which looks like the image below:
+From the virtual environment we can easily distinguish between navigable terrain and obstacles due to the color of each. Navigable terrain is much lighter than obstacles such as rocks and mountains. We can use color threshold techniques to extract the navigable regions. `color_threshold` is used to set threshold intensity limit on a Red, Green and Blue. This then outputs the result of the thresholding which looks like the image below:
 
 ![alt text][image_3]
 
@@ -48,11 +48,11 @@ The same technique is used to thresh for rocks. The main difference is the thres
 
 ![alt text][image_5]
 
-To determine the best navigable path, we take advantage of the previously threshed image. The optimal path for the robot is going to be represented by an availability of white pixels on the image. By the same token we can computer the direction the robot should taking by taking the average angle of all navigable terrain pixels (white pixels) in the rover’s field of view.  
+To determine the best navigable path, we take advantage of the previously threshed image. The optimal path for the robot is going to be represented by an availability of white pixels on the image. By the same token we can determine the direction the robot should take by computing the average angle of all navigable terrain pixels (white pixels) in the rover’s field of view.  
 
 ![alt text][image_4]
 
-**1. Populate the process_image() function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap. Run `process_image()` on your test data using the moviepyfunctions provided to create video output of your result.**
+**1. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap. Run `process_image()` on your test data using the moviepyfunctions provided to create video output of your result.**
 
 `process_image()` This is the place where all of the previously discussed steps happen in sequential order of operation. 
 - Perspective Transform
@@ -64,14 +64,14 @@ To determine the best navigable path, we take advantage of the previously thresh
 
 **1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.**
 
-perception.py is a used in the actual virtual environment not jupyter notebooks. The same concept that was implement in `process_image()` is used in perception.py 
+`perception.py` is a used in the actual virtual environment not jupyter notebooks. The same concept that was implement in `process_image()` is used in `perception.py` 
 We perform a few steps in order to make sense of the environment.
 - Perspective transform
 - Color Thresholding
 - Robot coordinates
 - Navigation angle
 
-decision.py is used as the guiding principle for the robot’s decision matrix.  This is a tree based approach that uses information previously obtain from the perception step. An example decision tree is below:
+`decision.py` is used as the guiding principle for the robot’s decision matrix.  This is a tree based approach that uses information previously obtain from the perception step. An example decision tree is below:
 
 ![alt text][image_6]
 

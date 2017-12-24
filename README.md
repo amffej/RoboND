@@ -59,7 +59,6 @@ To determine the best navigable path, we take advantage of the previously thresh
 - Color Thresholding
 - Robot Coordinates
 - Navigation angle
-*OUTPUT VIDEO USING MOVIEPI*
 
 ## Autonomous Navigation and Mapping
 

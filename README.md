@@ -5,7 +5,7 @@
 [image_3]: ./misc/writeup_3.png
 [image_4]: ./misc/writeup_4.png
 [image_5]: ./misc/writeup_5.png
-[image_5]: ./misc/writeup_6.png
+[image_6]: ./misc/writeup_6.png
 
 # Search and Sample Return Project
 
@@ -40,7 +40,7 @@ Using the OpenCV library we can then perform a perspective transform by taking a
 
 ![alt text][image_2] 
 
-From the virtual environment we can easily distinguish between navigable terrain and obstacles due to the color of each. Navigable terrain is much lighter than obstacles such was rocks and mountains. We can use color threshold techniques to extract the navigable regions. ‘color_threshold’ is used to set threshold intensity limit on a Red, Green and Blue. This then outputs the result of the threshing which looks like the image below:
+From the virtual environment we can easily distinguish between navigable terrain and obstacles due to the color of each. Navigable terrain is much lighter than obstacles such was rocks and mountains. We can use color threshold techniques to extract the navigable regions. `color_threshold` is used to set threshold intensity limit on a Red, Green and Blue. This then outputs the result of the threshing which looks like the image below:
 
 ![alt text][image_3]
 
@@ -52,9 +52,9 @@ To determine the best navigable path, we take advantage of the previously thresh
 
 ![alt text][image_4]
 
-**1. Populate the process_image() function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap. Run process_image() on your test data using the moviepyfunctions provided to create video output of your result.**
+**1. Populate the process_image() function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap. Run `process_image()` on your test data using the moviepyfunctions provided to create video output of your result.**
 
-process_image() This is the place where all of the previously discussed steps happen in sequential order of operation. 
+`process_image()` This is the place where all of the previously discussed steps happen in sequential order of operation. 
 - Perspective Transform
 - Color Thresholding
 - Robot Coordinates
@@ -63,9 +63,9 @@ process_image() This is the place where all of the previously discussed steps ha
 
 ## Autonomous Navigation and Mapping
 
-**1. Fill in the perception_step() (at the bottom of the perception.py script) and decision_step() (in decision.py) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.**
+**1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.**
 
-perception.py is a used in the actual virtual environment not jupyter notebooks. The same concept that was implement in process_image() is used in perception.py 
+perception.py is a used in the actual virtual environment not jupyter notebooks. The same concept that was implement in `process_image()` is used in perception.py 
 We perform a few steps in order to make sense of the environment.
 - Perspective transform
 - Color Thresholding

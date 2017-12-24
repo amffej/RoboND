@@ -5,6 +5,7 @@
 [image_3]: ./misc/writeup_3.png
 [image_4]: ./misc/writeup_4.png
 [image_5]: ./misc/writeup_5.png
+[image_5]: ./misc/writeup_6.png
 
 # Search and Sample Return Project
 
@@ -50,3 +51,49 @@ The same technique is used to thresh for rocks. The main difference is the thres
 To determine the best navigable path, we take advantage of the previously threshed image. The optimal path for the robot is going to be represented by an availability of white pixels on the image. By the same token we can computer the direction the robot should taking by taking the average angle of all navigable terrain pixels (white pixels) in the rover’s field of view.  
 
 ![alt text][image_4]
+
+**1. Populate the process_image() function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap. Run process_image() on your test data using the moviepyfunctions provided to create video output of your result.**
+
+process_image() This is the place where all of the previously discussed steps happen in sequential order of operation. 
+- Perspective Transform
+- Color Thresholding
+- Robot Coordinates
+- Navigation angle
+*OUTPUT VIDEO USING MOVIEPI*
+
+## Autonomous Navigation and Mapping
+
+**1. Fill in the perception_step() (at the bottom of the perception.py script) and decision_step() (in decision.py) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.**
+
+perception.py is a used in the actual virtual environment not jupyter notebooks. The same concept that was implement in process_image() is used in perception.py 
+We perform a few steps in order to make sense of the environment.
+- Perspective transform
+- Color Thresholding
+- Robot coordinates
+- Navigation angle
+
+decision.py is used as the guiding principle for the robot’s decision matrix.  This is a tree based approach that uses information previously obtain from the perception step. An example decision tree is below:
+
+![alt text][image_6]
+
+**2. Launching in autonomous mode your rover can navigate and map autonomously. Explain your results and how you might improve them in your writeup.**
+
+*The simulator was configured in the following fashion:*
+-	Screen Resolution: 1024x768
+-	Windowed: True
+-	Graphics quality: Fantastic
+-	FPS:  24
+-	OS: Windows 10
+
+*The results were as follow:*
+-	Time: 359s
+-	Mapped: 73%
+- 	Fidelity: 80.9%
+-	Rocks Located: 4
+
+*Some of the problems that were encountered, and the approach taken are below:*
+1) Robot getting stuck: This was by far the biggest problem, many of the rocks were not detected by the single camera alone. The solution to this issue was to write a ImStuck() routine where it tries various maneuvers in order to get unstuck.
+2) Robot not exploring sufficient part of the map: This issue was a little bit harder, the robot would randomly stick around the same area. The approach taken was to follow one wall closer to the other vs just driving in the center. By following closer towards one side (Left) the rover has a higher chance to navigate the map to a bigger extent. 
+3) Fidelity: Initially the fidelity of the pixels being mapped in comparison to the truth map was much lower (<60%). The approach taken was to skip map data when the rovers pitch and roll angle exceeded specific thresholds. 
+
+

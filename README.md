@@ -6,7 +6,6 @@
 [image_4]: ./misc/writeup_4.png
 [image_5]: ./misc/writeup_5.png
 [image_6]: ./misc/writeup_6.png
-[image_7]: ./misc/writeup_7.png(https://youtu.be/lbWwO0qvyw4)
 
 # Search and Sample Return Project
 
@@ -99,4 +98,4 @@ decision.py is used as the guiding principle for the robot’s decision matrix. 
 
 A video of one of the attemps can found below:
 
-![alt text][image_7]
+[![alt_text](./misc/writeup_7.png)](https://youtu.be/lbWwO0qvyw4)

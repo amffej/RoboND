@@ -52,13 +52,17 @@ To determine the best navigable path, we take advantage of the previously thresh
 
 ![alt text][image_4]
 
-**1. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap. Run `process_image()` on your test data using the moviepyfunctions provided to create video output of your result.**
+**1. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap. Run `process_image()` on your test data using the moviepy functions provided to create video output of your result.**
 
 `process_image()` This is the place where all of the previously discussed steps happen in sequential order of operation. 
 - Perspective Transform
 - Color Thresholding
 - Robot Coordinates
 - Navigation angle
+
+By using moviepy functions we succesfully created a video based on the `process_image()`
+[Mapping Video](./output/mapping.mp4)
+
 
 ## Autonomous Navigation and Mapping
 
